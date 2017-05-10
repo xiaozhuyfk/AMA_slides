@@ -43,8 +43,17 @@
                     <section id="fragments">
                         What is Question Answering?
                         <blockquote class="fragment">
-                            Question answering (QA) is a computer science discipline within the fields of information retrieval and natural language processing (NLP), which is concerned with building systems that automatically answer questions posed by humans in a natural language.
+                            Question answering (QA) is a computer science discipline within
+                            the fields of information retrieval and natural language
+                            processing (NLP), which is concerned with building systems
+                            that automatically answer questions posed by humans in a
+                            natural language. --- Wikipedia
                         </blockquote>
+                        <aside class="notes">
+                            Different from search engines, a question answering system
+                            will give direct answers to any natural language questions instead
+                            of a bunch of documents.
+                        </aside>
                     </section>
 
                     <section id="fragments">
@@ -54,8 +63,126 @@
                         <p class="fragment">Where did the latin language originate from?</p>
                         <p class="fragment">...</p>
                     </section>
-
                 </section>
+
+                <section>
+                    <section id="fragments">
+                        What is Freebase?
+                        <img data-src="media/Freebase_Logo_optimised.png">
+                        <aside class="notes">
+                            Where does the answer come from? In this research, we built our QA
+                            system based on knowledge bases. More specifically, we are using
+                            Freebase as our major data source.
+                            Freebase is a large collaborative knowledge base currently maintained by Google.
+                            Essentially, Freebase is just a list of triples in the format of
+                        </aside>
+                    </section>
+                </section>
+
+                <section>
+                    <h1>Demo</h1>
+                    <aside class="notes">
+                        Now, I want to give a quick demo about an interesting webapp built
+                        upon our Question Answering system, in order to give you a clear notion
+                        about the problem we are solving here.
+                    </aside>
+                </section>
+
+                <section>
+                    <h4>Core challenge</h4>
+                    <ul>
+                        <li>Relation matching</li>
+                        <li>Ranking</li>
+                    </ul>
+                    <aside class="notes">
+                        From the demo, we can see that there are two major challeges. One is
+                        the relation matching problem, which is how can find the relationship
+                        that answers the question.
+                    </aside>
+                </section>
+
+                <section>
+                    <h4>Long Short Term Memory (LSTM)</h4>
+                    <img data-src="media/LSTM3-chain.png">
+                    <aside class="notes">
+                        Long Short Term Memory networks – usually just called “LSTMs” –
+                        are a special kind of RNN, capable of learning long-term dependencies.
+                        The motivation for using LSTM is that LSTM has been proved to be quite
+                        effective when solving machine translation problems, and matching relations
+                        can be considered as a form of translation.
+                    </aside>
+                </section>
+
+                <section>
+                    <img data-src="media/lstm.png">
+                    <aside class="notes">
+
+                    </aside>
+                </section>
+
+                <section>
+                    <h4>Training</h4>
+                    <ul>
+                        <li>Both models trained pairwisely</li>
+                        <li>Each training instance is a pair of fact candidates</li>
+                        <li>Use letter-trigrams for input word sequence</li>
+                        <ul>
+                            <li>"who" --- "#wh" + "who" + "ho#"</li>
+                            <li>reduce vocabulary size</li>
+                            <li>spelling errors</li>
+                        </ul>
+                    </ul>
+                </section>
+
+                <section>
+                    <h4>Wikipedia Support Sentence Extraction</h4>
+                    <ul>
+                        <li>Data: enwiki data dump (.xml)</li>
+                        <li>For candidate triple (e, r, x), extract sentences containing both e, x</li>
+                        <li>Choose the best support sentence based on similarity</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h4>Feature Representation</h4>
+                    <img data-src="media/features.png" width="800">
+                    <aside class="notes">
+                        Feature 1: Popularity score aims to measure the quality of idenAfied enAty
+                        Feature 2: Number of support sentences reflects the popularity of the relaAon
+                        edge
+                        Feature 3: Term overlap between quesAon and top support sentence
+                        Feature 4: Term overlap between fact candidate and top support sentence
+                        Feature 5-8: QuesAon-RelaAon similarity scores computed by LSTM Ranking,
+                        LSTM Joint, LSTM Joint Pre-train and CDSSM models
+                        Feature 9-12: QuesAon-Support Sentence similarity scores computed by the
+                        deep learning models
+                    </aside>
+                </section>
+
+                <section>
+                    <h4>Evaluation</h4>
+                    <ul>
+                        <li>Dataset: WebQuestions</li>
+                        <li>3778 training questions, 2032 testing questions</li>
+                        <li>Performance evaluated by average recall, precision, F1 measure</li>
+                    </ul>
+                    <aside class="notes">
+                        Reference answers of the questions are obtained by crowd sourcing
+                    </aside>
+                </section>
+
+                <section>
+                    <img data-src="media/result.png">
+                </section>
+
+                <section>
+                    <img data-src="media/error.png">
+                </section>
+
+                <section>
+                    <h4>Future Work</h4>
+                </section>
+
 			</div>
 		</div>
 
