@@ -1,68 +1,45 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Question Answering with Knowledge Graph</title>
+        <title>Question Answering with Knowledge Graph</title>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/black.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>
-                    <h2>Question Answering with Freebase</h2>
-                    Supporting Knowledge Graph Inference with Natural Language Sentences
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h4>Natural Language Supported Relation Matching for Question Answering with Knowledge Graphs</h4>
 
                     <br><br><br>
 
                     <p style="font-size:50%;">
-                        Hongyu Li
-                    </p>
-
-                    <p style="font-size:50%;">
-                        Advisor: Prof. Jamie Callan, Chenyan Xiong
+                        Hongyu Li, Chenyan Xiong, Jamie Callan
                     </p>
                 </section>
 
-				<section>
-                    <section id="fragments">
-                        What is Question Answering?
-                        <blockquote class="fragment">
-                            Question answering (QA) is a computer science discipline within
-                            the fields of information retrieval and natural language
-                            processing (NLP), which is concerned with building systems
-                            that automatically answer questions posed by humans in a
-                            natural language. --- Wikipedia
-                        </blockquote>
-                        <aside class="notes">
-                            Different from search engines, a question answering system
-                            will give direct answers to any natural language questions instead
-                            of a bunch of documents.
-                        </aside>
-                    </section>
-
-                    <section id="fragments">
-                        <p class="fragment">Where is Carnegie Mellon University?</p>
-                        <p class="fragment">Who founded Google?</p>
-                        <p class="fragment">Who inspired Obama?</p>
-                        <p class="fragment">Where did the latin language originate from?</p>
-                        <p class="fragment">...</p>
-                    </section>
+                <section id="fragments">
+                    <p class="fragment">Where is Carnegie Mellon University?</p>
+                    <p class="fragment">Who founded Google?</p>
+                    <p class="fragment">Who inspired Obama?</p>
+                    <p class="fragment">Where did the latin language originate from?</p>
+                    <p class="fragment">...</p>
                 </section>
 
                 <section>
@@ -88,6 +65,17 @@
                     </aside>
                 </section>
 
+                <section data-background-iframe="http://xiaozhuyfk.github.io/AMA_Network" data-background-interactive>
+
+                </section>
+
+                <section data-background-color="#ffffff">
+                    <img data-src="media/system.png">
+                    <aside class="notes">
+
+                    </aside>
+                </section>
+
                 <section>
                     <h4>Core challenge</h4>
                     <ul>
@@ -101,7 +89,7 @@
                     </aside>
                 </section>
 
-                <section>
+                <!-- <section>
                     <h4>Long Short Term Memory (LSTM)</h4>
                     <img data-src="media/LSTM3-chain.png">
                     <aside class="notes">
@@ -111,7 +99,7 @@
                         effective when solving machine translation problems, and matching relations
                         can be considered as a form of translation.
                     </aside>
-                </section>
+                </section> -->
 
                 <section>
                     <img data-src="media/lstm.png">
@@ -148,7 +136,7 @@
                     <img data-src="media/features.png" width="800">
                     <aside class="notes">
                         Feature 1: Popularity score aims to measure the quality of idenAfied enAty
-                        Feature 2: Number of support sentences reflects the popularity of the relaAon
+                        Feature 2: Number of support sentences reflects the popularity of the relation
                         edge
                         Feature 3: Term overlap between quesAon and top support sentence
                         Feature 4: Term overlap between fact candidate and top support sentence
@@ -180,27 +168,37 @@
                 </section>
 
                 <section>
-                    <h4>Future Work</h4>
+                    <h3>Questions?</h3>
                 </section>
 
-			</div>
-		</div>
+            </div>
+        </div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+        <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+            Reveal.initialize({
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+
+            // Shows the slide number using default formatting
+            // Reveal.configure({ slideNumber: true });
+
+            // Slide number formatting can be configured using these variables:
+            //  "h.v":  horizontal . vertical slide number (default)
+            //  "h/v":  horizontal / vertical slide number
+            //    "c":  flattened slide number
+            //  "c/t":  flattened slide number / total slides
+            Reveal.configure({ slideNumber: 'c/t' });
+        </script>
+    </body>
 </html>
