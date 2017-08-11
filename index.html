@@ -32,6 +32,27 @@
                     <p style="font-size:50%;">
                         Hongyu Li, Chenyan Xiong, Jamie Callan
                     </p>
+
+                    <p style="font-size:50%;">
+                        Carnegie Mellon University
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Roadmap</h3>
+                    <ul style="font-size:70%;">
+                        <li>What task?</li> 
+                            <ul>
+                                <li>Question Answering with Knowledge Graph</li>
+                            </ul>
+                        <li>System Architecture</li>
+                        <li>Relation Matching</li>
+                            <ul>
+                                <li>Semantic Parsing with LSTM</li>
+                                <li>Wikipedia Support Sentences</li>
+                            </ul>
+                        <li>Experiment Results & Analysis</li>
+                    </ul>
                 </section>
 
                 <section id="fragments">
@@ -44,7 +65,6 @@
 
                 <section>
                     <section id="fragments">
-                        What is Freebase?
                         <img data-src="media/Freebase_Logo_optimised.png">
                         <aside class="notes">
                             Where does the answer come from? In this research, we built our QA
@@ -56,20 +76,12 @@
                     </section>
                 </section>
 
-                <section>
-                    <h1>Demo</h1>
-                    <aside class="notes">
-                        Now, I want to give a quick demo about an interesting webapp built
-                        upon our Question Answering system, in order to give you a clear notion
-                        about the problem we are solving here.
-                    </aside>
-                </section>
-
                 <section data-background-iframe="http://xiaozhuyfk.github.io/AMA_Network" data-background-interactive>
 
                 </section>
 
                 <section data-background-color="#ffffff">
+                    <h4>System Architecture</h4>
                     <img data-src="media/system.png">
                     <aside class="notes">
 
@@ -77,10 +89,10 @@
                 </section>
 
                 <section>
-                    <h4>Core challenge</h4>
-                    <ul>
-                        <li>Relation matching</li>
-                        <li>Ranking</li>
+                    <h3>Relation Matching</h3>
+                    <ul style="font-size:80%;">
+                        <li>Semantic Parsing with LSTM</li>
+                        <li>Wikipedia Support Sentences</li>
                     </ul>
                     <aside class="notes">
                         From the demo, we can see that there are two major challeges. One is
@@ -102,6 +114,7 @@
                 </section> -->
 
                 <section>
+                    <h4>Semantic Parsing with LSTM</h4>
                     <img data-src="media/lstm.png">
                     <aside class="notes">
 
@@ -126,7 +139,7 @@
                     <h4>Wikipedia Support Sentence Extraction</h4>
                     <ul>
                         <li>Data: enwiki data dump (.xml)</li>
-                        <li>For candidate triple (e, r, x), extract sentences containing both e, x</li>
+                        <li>For candidate triple (s, r, o), extract sentences containing both s, o</li>
                         <li>Choose the best support sentence based on similarity</li>
                     </ul>
                 </section>
@@ -160,7 +173,11 @@
                 </section>
 
                 <section>
-                    <img data-src="media/result.png">
+                    <img data-src="media/result1.png">
+                </section>
+
+                <section>
+                    <img data-src="media/result2.png">
                 </section>
 
                 <section>
